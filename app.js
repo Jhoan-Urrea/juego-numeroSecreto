@@ -50,6 +50,7 @@ function intentoDeUsuario (){
         document.querySelector('#intentar').setAttribute('disabled','true');
     
     }else{
+        
         if((intentosMaximos-numeroIntentos)>0){
             if(numeroSecreto>numeroUsuario){
                 asignarTextoElementoId('textoParrafo','El número secreto es mayor');
