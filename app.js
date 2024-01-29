@@ -45,8 +45,10 @@ function intentoDeUsuario (){
     if((intentosMaximos-numeroIntentos)>0){
         if(numeroSecreto===numeroUsuario){
 
+            asignarTextoElementoId('textoIntentos','');
             asignarTextoElementoId('textoParrafo',`Acertaste el número en ${numeroIntentos} ${(numeroIntentos===1)? 'vez' : 'veces'}`);
             document.getElementById('reiniciar').removeAttribute('disabled');
+            document.querySelector('#intentar').setAttribute('disabled','true');
         
         }else{
             if(numeroSecreto>numeroUsuario){
