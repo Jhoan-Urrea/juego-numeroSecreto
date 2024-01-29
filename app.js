@@ -42,32 +42,33 @@ function intentoDeUsuario (){
     asignarTextoElementoId('textoIntentos',`Intentos: ${intentosFaltantes}`);
     cambiarColorIntentos(intentosFaltantes);
     let numeroUsuario = parseInt(document.getElementById('valorUsuario').value);
-    if((intentosMaximos-numeroIntentos)>0){
-        if(numeroSecreto===numeroUsuario){
+    if(numeroSecreto===numeroUsuario){
 
-            asignarTextoElementoId('textoIntentos','');
-            asignarTextoElementoId('textoParrafo',`Acertaste el número en ${numeroIntentos} ${(numeroIntentos===1)? 'vez' : 'veces'}`);
-            document.getElementById('reiniciar').removeAttribute('disabled');
-            document.querySelector('#intentar').setAttribute('disabled','true');
-        
-        }else{
+        asignarTextoElementoId('textoIntentos','');
+        asignarTextoElementoId('textoParrafo',`Acertaste el número en ${numeroIntentos} ${(numeroIntentos===1)? 'vez' : 'veces'}`);
+        document.getElementById('reiniciar').removeAttribute('disabled');
+        document.querySelector('#intentar').setAttribute('disabled','true');
+    
+    }else{
+        if((intentosMaximos-numeroIntentos)>0){
             if(numeroSecreto>numeroUsuario){
                 asignarTextoElementoId('textoParrafo','El número secreto es mayor');
             }else{
                 asignarTextoElementoId('textoParrafo','El numero es menor');
             }
             numeroIntentos++;
-
+    
             limpiarCaja();
-        
+           
+        }else{
+            asignarTextoElementoId('textoParrafo','Ya no tienes mas intentos');
+            document.querySelector('#intentar').setAttribute('disabled','true');
+            document.getElementById('reiniciar').removeAttribute('disabled');
+    
         }
-       
-    }else{
-        asignarTextoElementoId('textoParrafo','Ya no tienes mas intentos');
-        document.querySelector('#intentar').setAttribute('disabled','true');
-        document.getElementById('reiniciar').removeAttribute('disabled');
-
+    
     }
+    
     
     
     return;
